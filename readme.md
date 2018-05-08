@@ -1,6 +1,6 @@
 # Repoistory Purpose
 
-This repository demonstrates a an [issue](https://github.com/Microsoft/msbuild/issues/2366) with concurrency in builds with projects using the old and new project file formats.  In this case `B.CppCLILibrary` gets built twice.
+This repository demonstrates an [issue](https://github.com/Microsoft/msbuild/issues/2366) with concurrency in builds with projects using the old and new project file formats.  In this case `B.CppCLILibrary` gets built twice.
 
 ## Project Setup
 
@@ -35,9 +35,7 @@ Run `build.ps1`. This will run a concurrent build and will likely fail with a co
 c:\dev\msbuildconcurrencyproblems\b.cppclilibrary\assemblyinfo.cpp(1): fatal error C1041: cannot open program database 'C:\dev\MsBuildConcurrencyProblems\B.CppCLILibrary\x64\Debug\vc141.pdb'; if multiple CL.EXE write to the same .
        PDB file, please use /FS [C:\dev\MsBuildConcurrencyProblems\B.CppCLILibrary\B.CppCLILibrary.vcxproj]
 ```
-
 or 
-
 ```
 c:\dev\msbuildconcurrencyproblems\b.cppclilibrary\assemblyinfo.cpp(1): fatal error C1093: API call 'ImportFile' failed '0x80070020': ErrorMessage: The process cannot access the file because it is being used by another process. [C:
        \dev\MsBuildConcurrencyProblems\B.CppCLILibrary\B.CppCLILibrary.vcxproj]
