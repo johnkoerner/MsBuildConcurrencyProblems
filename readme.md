@@ -27,4 +27,19 @@ This is a C++ project that is referenced by `A.NetFramework.Console` and `C.Dual
 
 This is a C# project that uses the new csproj file format. It targets both `net471` and `netstandard2.0` and has a conditional reference to  `B.CppCLILibrary` when built for `net471`.
 
+# Demonstrating the Issue
+
+Run `build.ps1`. This will run a concurrent build and will likely fail with a concurrency issue such as: 
+
+```
+c:\dev\msbuildconcurrencyproblems\b.cppclilibrary\assemblyinfo.cpp(1): fatal error C1041: cannot open program database 'C:\dev\MsBuildConcurrencyProblems\B.CppCLILibrary\x64\Debug\vc141.pdb'; if multiple CL.EXE write to the same .
+       PDB file, please use /FS [C:\dev\MsBuildConcurrencyProblems\B.CppCLILibrary\B.CppCLILibrary.vcxproj]
+```
+
+or 
+
+```
+c:\dev\msbuildconcurrencyproblems\b.cppclilibrary\assemblyinfo.cpp(1): fatal error C1093: API call 'ImportFile' failed '0x80070020': ErrorMessage: The process cannot access the file because it is being used by another process. [C:
+       \dev\MsBuildConcurrencyProblems\B.CppCLILibrary\B.CppCLILibrary.vcxproj]
+```
 
